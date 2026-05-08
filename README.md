@@ -32,6 +32,10 @@ This will build a release-optimized binary for your **specific** platform.
 - **Evaluation**: incremental midgame/endgame evaluation with PSQTs tuned via Texel’s method  
 - **Optimizations**: transposition tables, Zobrist hashing, LTO for release builds  
 
+## Development
+
+This project uses Git Cliff for changelog generation and follows Conventional Commits.
+
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
