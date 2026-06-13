@@ -1,4 +1,4 @@
-## [1.3.1] - 2026-06-13
+## [1.3.2] - 2026-06-13
 
 ### 🚀 Features
 
@@ -7,10 +7,7 @@
 ### 💼 Other
 
 - Improve portability on `portable` mode
-
-### 🚜 Refactor
-
-- Refine quiet move detection
+- Target x86_64-v2 for generic builds
 
 ### 📚 Documentation
 
@@ -20,14 +17,23 @@
 
 ### ⚙️ Miscellaneous Tasks
 
+- Include dist/ dir on .gitignore
+- Improve README.md
+- Rename to Zugblitz (Golem was already taken)
+- Update CHANGELOG.md
+## [1.3.1] - 2026-01-09
+
+### 🚜 Refactor
+
+- Refine quiet move detection
+
+### ⚙️ Miscellaneous Tasks
+
 - Remove ghost main.c file
 - Add license
 - Update changelog and major version
 - Change default MoveOverhead to 100 ms
 - Improve Windows compatibility and fix warnings in gcc
-- Include dist/ dir on .gitignore
-- Improve README.md
-- Rename to Zugblitz (Golem was already taken)
 ## [1.3.0] - 2026-01-08
 
 ### 🚀 Features

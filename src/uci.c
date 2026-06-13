@@ -291,7 +291,7 @@ void uci_loop(engine_t* engine) {
     }
 
     if (strcmp(token, "uci") == 0) {
-      UCI_SEND("id name Zugblitz 1.3.1");
+      UCI_SEND("id name Zugblitz 1.3.2");
       UCI_SEND("id author P1x3r");
       UCI_SEND("option name Ponder type check default false");
       UCI_SEND("option name Hash type spin default 32 min 2 max 1024");
