@@ -25,7 +25,7 @@ else ifeq ($(MODE),release)
     LDFLAGS += -flto
 
 else ifeq ($(MODE),portable)
-    CFLAGS  := $(COMMON_FLAGS) -O3 -march=x86-64 -mtune=generic -DNDEBUG
+    CFLAGS  := $(COMMON_FLAGS) -O3 -march=x86-64-v2 -mtune=generic -DNDEBUG
     LDFLAGS += -s -static
     ifeq ($(HOST_WIN),1)
         LDFLAGS += -static-libgcc -Wl,-Bstatic -lwinpthread -Wl,-Bdynamic
