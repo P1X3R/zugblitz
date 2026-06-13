@@ -13,6 +13,7 @@
 #include "history.h"
 #include "misc.h"
 #include "movegen.h"
+#include "perft.h"
 #include "search.h"
 #include "transposition.h"
 
@@ -108,6 +109,7 @@ static void handle_go(engine_t* engine, pthread_t* worker,
   uint64_t wtime = 0, btime = 0, winc = 0, binc = 0, mtg = 0;
   uint64_t movetime = 0;
   uint8_t depth = MAX_PLY - 1;
+  int perft_depth = 0;
 
   search_flag_store(ST_THINK);
   char* token;
@@ -156,7 +158,24 @@ static void handle_go(engine_t* engine, pthread_t* worker,
         depth = (uint8_t)atoi(val) * 2 - 1;
         depth = (depth >= MAX_PLY) ? (MAX_PLY - 1) : depth;
       }
+    } else if (strcmp(token, "perft") == 0) {
+      const char* val = strtok_r(NULL, " ", saveptr);
+      if (val) {
+        perft_depth = atoi(val);
+        perft_depth = (perft_depth >= MAX_PLY) ? (MAX_PLY - 1) : perft_depth;
+      }
     }
+  }
+
+  if (perft_depth) {
+    const uint64_t start_ms = now_ms();
+    const uint64_t nodes = perft(&engine->board, true, perft_depth);
+    const uint64_t duration_ms = now_ms() - start_ms;
+
+    UCI_SEND("\nnodes: %" PRIu64, nodes);
+    UCI_SEND("time: %" PRIu64 " ms", duration_ms);
+    UCI_SEND("nps: %.4f N/s", (double)(nodes * 1000) / (double)duration_ms);
+    return;
   }
 
   const uint64_t color_time_ms =
