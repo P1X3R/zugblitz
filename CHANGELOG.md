@@ -1,8 +1,22 @@
-## [1.3.1] - 2026-01-09
+## [1.3.1] - 2026-06-13
+
+### 🚀 Features
+
+- Add `go perft` command
+
+### 💼 Other
+
+- Improve portability on `portable` mode
 
 ### 🚜 Refactor
 
 - Refine quiet move detection
+
+### 📚 Documentation
+
+- Add a clarification comment at the top of `src/luts.c`
+- Document that this project uses git cliff and conventional commits
+- Improve README
 
 ### ⚙️ Miscellaneous Tasks
 
@@ -11,6 +25,9 @@
 - Update changelog and major version
 - Change default MoveOverhead to 100 ms
 - Improve Windows compatibility and fix warnings in gcc
+- Include dist/ dir on .gitignore
+- Improve README.md
+- Rename to Zugblitz (Golem was already taken)
 ## [1.3.0] - 2026-01-08
 
 ### 🚀 Features
