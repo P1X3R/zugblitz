@@ -9,7 +9,7 @@ positions are evaluated, and the best continuation is selected.
 
 ## Board representation
 
-Zugblitz uses standard bitboards alongside a redundant piece-lists, both piece-centric board representations. 
+Zugblitz uses standard bitboards alongside a redundant piece-list, both piece-centric board representations. 
 
 Bitboards are used for attack generation and occupancy queries, while piece lists allow fast piece-type querying.
 
@@ -25,7 +25,7 @@ The engine represents moves internally as 16-bit numbers with the following enco
 | 12-15 | Flags |
 
 
-I decided to use this move representation becuase it's extremely compact and allows smaller TT entries, this means that more entries fit in the same memory space!
+I decided to use a manually packed representation rather than just a struct with bitfields to ensure total control and allow bitwise logic over the whole move in memory.
 
 ## Move Generation
 
@@ -35,6 +35,8 @@ The move generation process is divided in two:
 2. **Legal-move checking:** enforces king safety for each move only when needed
 
 This implementation is significantly simpler than generating legal moves directly and has the potential of becoming extremely fast. However, Zugblitz uses Ethereal's approach: which simply check if the king is being attacked by a piece one by one instead of using attack tables, this approach generates moves fast enough to be competitive.
+
+Sliding pieces are a special case in pseudo-legal move generation becuase they need occupancy checking. To solve this instead of calculating ray attacks each time, Zugblitz uses Fancy Magic Bitbords, which takes only a couple CPU cycles.
 
 ## Search
 
@@ -97,7 +99,7 @@ A gradient-based optimization approach was chosen over traditional hill-climbing
 
 ## Transposition tables
 
-Zugbltz uses Zobrist hashing to quickly index positions into a hashmap-like structure called Transposition tables (TT).
+Zugblitz uses Zobrist hashing to quickly index positions into a hashmap-like structure called Transposition tables (TT).
 
 Each TT entry stores:
 - Position hash (key)
