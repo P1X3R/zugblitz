@@ -88,6 +88,11 @@ This continued until the project began to use SPRT to test every feature by runn
 
 Evaluation parameters (PSQTs) are fine tuned through Texel's Tuning method. However, the traditional stochastic hill climbing is very slow, especially with my machine's hardware constraints, so I decided to use a gradient-based approach with PyTorch in [Zugblitz Texel's tuning pipeline](https://www.github.com/P1X3R/texel_zugblitz).
 
+## Previous prototypes
+
+- [Tanathos](https://www.github.com/P1X3R/tanathos)
+- [Sand](https://www.github.com/P1X3R/sand)
+
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
