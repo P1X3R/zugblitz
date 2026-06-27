@@ -34,17 +34,7 @@ The engine generates pseudo-legal moves, filters illegal ones through king-safet
 
 ### Strength
 
-Around **2200 Elo** estimated by playing against Petrel.
-
-| Opponent   | Published Rating | Estimated Result |
-| ---------- | ---------------- | ---------------- |
-| Petrel 1.0 | 2000 CCRL Blitz  | +79 ± 48 Elo     |
-| Petrel 2.1 | 2624 CCRL Blitz  | -436 ± 126 Elo   |
-
-* **Time control:** 10+0.1
-* **Games:** ~100 per opponent
-
-According to Petrel author Aleks Peshkov, these results place Zugblitz around 2200 CCRL Elo at LTC.
+Zugblitz plays at **~2200 Elo** at time control 2'+1" (blitz) according to the. See more details in [CCRL](https://computerchess.org.uk/404/cgi/engine_details.cgi?print=Details&each_game=1&eng=Zugblitz%201.3.2%2064-bit#Zugblitz_1_3_2_64-bit).
 
 ### Speed
 
